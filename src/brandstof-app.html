@@ -23,9 +23,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="brandstof-icons.html">
 
-<link rel="lazy-import" href="brandstof-view1.html">
-<link rel="lazy-import" href="brandstof-view2.html">
-<link rel="lazy-import" href="brandstof-view3.html">
+<link rel="lazy-import" href="brandstof-home.html">
+<link rel="lazy-import" href="brandstof-gallery.html">
+<link rel="lazy-import" href="brandstof-contact.html">
 <link rel="lazy-import" href="brandstof-view404.html">
 
 <dom-module id="brandstof-app">
@@ -37,17 +37,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         display: block;
       }
-
-      /* app-header {
-        color: #fff;
-        background-color: var(--app-primary-color);
-      } */
-
-      app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
-      }
-
-      /* Landing Page */
 
       a {
         text-decoration: none;
@@ -72,152 +61,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 12px 16px 12px;
         border-bottom: 1px solid #222;
       }
-
-      header {
-        @apply --layout-vertical;
-        @apply --layout-center-center;
-        height: calc(100vh - 64px);
-        padding: 0 16px;
-        background-image: url('//app-layout-assets.appspot.com/assets/landing-page/glass_explorer_food_2.png');
-        backgrond-repeat: no-repeat;
-        background-size: cover;
-        color: white;
-        text-align: center;
-      }
-
-      header > h2 {
-        font-size: 56px;
-        font-weight: 300;
-        margin: 0;
-      }
-
-      header > p {
-        font-size: 32px;
-      }
-
-      section {
-        padding: 88px 16px;
-      }
-
-      .container {
-        @apply --layout-horizontal;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .container > * {
-        @apply --layout-flex;
-      }
-
-      .container img {
-        max-width: 100%;
-        max-height: 100%;
-      }
-
-      .container h3 {
-        font-size: 32px;
-        font-weight: 300;
-        margin: 24px 0;
-      }
-
-      .container p {
-        line-height: 1.5;
-      }
-
-      @media (max-width: 600px) {
-        .container {
-          @apply --layout-vertical;
-        }
-      }
     </style>
 
-    <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
+    <app-location
+      route="{{route}}"
+      url-space-regex="^[[rootPath]]">
+    </app-location>
     <app-route
-        route="{{route}}"
-        pattern="[[rootPath]]:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+      route="{{route}}"
+      pattern="[[rootPath]]:page"
+      data="{{routeData}}"
+      tail="{{subroute}}">
+    </app-route>
 
-      <!-- <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-        <a name="view1" href="[[rootPath]]view1">View One</a>
-        <a name="view2" href="[[rootPath]]view2">View Two</a>
-        <a name="view3" href="[[rootPath]]view3">View Three</a>
-      </iron-selector> -->
-      <!-- <iron-pages
+    <app-header-layout>
+      <app-header reveals effects="waterfall" slot="header">
+        <app-toolbar class="toolbar">
+          <div class="tabs">
+            <a href="[[rootPath]]">Home</a>
+            <a href="[[rootPath]]gallery">Gallery</a>
+            <a href="[[rootPath]]contact">Contact</a>
+          </div>
+        </app-toolbar>
+      </app-header>
+
+      <iron-pages
           selected="[[page]]"
           attr-for-selected="name"
           fallback-selection="view404"
           role="main">
-        <brandstof-view1 name="view1"></brandstof-view1>
-        <brandstof-view2 name="view2"></brandstof-view2>
-        <brandstof-view3 name="view3"></brandstof-view3>
+        <brandstof-home name="home"></brandstof-home>
+        <brandstof-gallery name="gallery"></brandstof-gallery>
+        <brandstof-contact name="contact"></brandstof-contact>
         <brandstof-view404 name="view404"></brandstof-view404>
-      </iron-pages> -->
-      <!-- <app-header slot="header" condenses reveals effects="waterfall">
-        <app-toolbar>
-          <paper-icon-button icon="brandstof-icons:menu" drawer-toggle></paper-icon-button>
-          <div main-title>Brandstof</div>
-        </app-toolbar>
-      </app-header> -->
-
-    <app-header-layout>
-
-      <app-header reveals effects="waterfall" slot="header">
-
-        <app-toolbar class="toolbar">
-          <div class="tabs">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </app-toolbar>
-
-      </app-header>
-
-      <header>
-        <h2>Welcome To Our Landing Page</h2>
-        <p>Made with App Layout Elements</p>
-      </header>
-
-      <section id="about">
-        <div class="container">
-          <div>
-            <img src="//app-layout-assets.appspot.com/assets/landing-page/berries.jpg">
-          </div>
-          <div>
-            <h3>About</h3>
-            <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.</p>
-            <p>Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no. Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="services">
-        <div class="container">
-          <div>
-            <img src="//app-layout-assets.appspot.com/assets/landing-page/tomato.jpg">
-          </div>
-          <div>
-            <h3>Services</h3>
-            <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.</p>
-            <p>Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no. Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="container">
-          <div>
-            <img src="//app-layout-assets.appspot.com/assets/landing-page/red-onion.jpg">
-          </div>
-          <div>
-            <h3>Contact</h3>
-            <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.</p>
-            <p>Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no. Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</p>
-          </div>
-        </div>
-      </section>
-
+      </iron-pages>
     </app-header-layout>
   </template>
 
@@ -248,18 +125,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _routePageChanged(page) {
         // If no page was found in the route data, page will be an empty string.
-        // Deault to 'view1' in that case.
-        this.page = page || 'view1';
+        // Deault to 'home' in that case.
+        this.page = page || 'home';
       }
 
       _pageChanged(page) {
         // Load page import on demand. Show 404 page if fails
         var resolvedPageUrl = this.resolveUrl('brandstof-' + page + '.html');
-        Polymer.importHref(
-            resolvedPageUrl,
-            null,
-            this._showPage404.bind(this),
-            true);
+        Polymer.importHref(resolvedPageUrl, null, this._showPage404.bind(this), true);
       }
 
       _showPage404() {
