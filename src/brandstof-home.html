@@ -32,10 +32,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-align: center;
       }
 
-      header > h2 {
-        font-size: 72px;
-        font-weight: 300;
-        margin: 0;
+      header > img {
+        height: auto;
+        width: 100%;
+        max-width: 600px;
       }
 
       header > p {
@@ -43,20 +43,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       @media (max-width: 960px) {
-        header > h2 {
-          font-size: 56px;
-        }
-
         header > p {
           font-size: 36px;
         }
       }
 
       @media (max-width: 600px) {
-        header > h2 {
-          font-size: 48px;
-        }
-
         header > p {
           font-size: 28px;
         }
@@ -72,11 +64,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 0 auto;
       }
 
-      .container > * {
+      .container:not(.full-width) > * {
         @apply --layout-flex;
       }
 
-      .container img {
+      .container:not(.full-width) img {
         max-width: 100%;
         max-height: 100%;
       }
@@ -96,10 +88,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           @apply --layout-vertical;
         }
       }
+
+      .full-width {
+        max-width: initial;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        width: 300px;
+        margin: 0 32px;
+      }
+
+      .logo img {
+        height: auto;
+        width: inherit;
+      }
     </style>
 
     <header>
-      <h2>Brandstof</h2>
+      <img src="../images/logo-small.min.jpg" alt="Brandstof">
       <p>A creative community for makers.</p>
     </header>
 
@@ -117,28 +125,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </section>
 
     <section id="services">
-      <div class="container">
-        <div>
-          <img src="//app-layout-assets.appspot.com/assets/landing-page/tomato.jpg">
-        </div>
-        <div>
-          <h3>Services</h3>
-          <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.</p>
-          <p>Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no. Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div>
-          <img src="//app-layout-assets.appspot.com/assets/landing-page/red-onion.jpg">
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.</p>
-          <p>Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no. Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</p>
-        </div>
+      <div class="container full-width">
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
+        <div class="logo"><img src="../images/bbq-background.jpg" alt=""></div>
       </div>
     </section>
   </template>
