@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="brandstof-logo">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <img src="[[image]]" alt="logo">
+  </template>
+
+  <script>
+    class BrandstofLogo extends Polymer.Element {
+
+      static get is() { return 'brandstof-logo'; }
+
+      static get properties() {
+        return {
+          image: {
+            type: String,
+            value: '/images/logo-small.min.jpg'
+          }
+        };
+      }
+
+    }
+
+    window.customElements.define(BrandstofLogo.is, BrandstofLogo);
+  </script>
+</dom-module>
