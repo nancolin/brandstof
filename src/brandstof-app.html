@@ -46,8 +46,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .toolbar {
         @apply --layout-horizontal;
-        @apply --layout-end-justified;
-        background-color: rgba(255, 255, 255, 0.95);
+        @apply --layout-justified;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       .tabs {
@@ -59,7 +62,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply --layout-vertical;
         @apply --layout-center-center;
         margin: 12px 16px 12px;
-        border-bottom: 1px solid #222;
       }
     </style>
 
@@ -81,6 +83,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <a href="[[rootPath]]">Home</a>
             <a href="[[rootPath]]gallery">Gallery</a>
             <a href="[[rootPath]]contact">Contact</a>
+          </div>
+          <div class="tabs">
+            <a href="[[rootPath]]">Login</a>
           </div>
         </app-toolbar>
       </app-header>
