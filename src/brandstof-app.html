@@ -23,10 +23,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="brandstof-icons.html">
 
-<link rel="lazy-import" href="brandstof-home.html">
-<link rel="lazy-import" href="brandstof-gallery.html">
-<link rel="lazy-import" href="brandstof-contact.html">
-<link rel="lazy-import" href="brandstof-view404.html">
+<link rel="lazy-import" href="brandstof-view-home.html">
+<link rel="lazy-import" href="brandstof-view-gallery.html">
+<link rel="lazy-import" href="brandstof-view-contact.html">
+<link rel="lazy-import" href="brandstof-view-error404.html">
 
 <dom-module id="brandstof-app">
   <template>
@@ -93,12 +93,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <iron-pages
           selected="[[page]]"
           attr-for-selected="name"
-          fallback-selection="view404"
+          fallback-selection="error404"
           role="main">
-        <brandstof-home name="home"></brandstof-home>
-        <brandstof-gallery name="gallery"></brandstof-gallery>
-        <brandstof-contact name="contact"></brandstof-contact>
-        <brandstof-view404 name="view404"></brandstof-view404>
+        <brandstof-view-home name="home"></brandstof-view-home>
+        <brandstof-view-gallery name="gallery"></brandstof-view-gallery>
+        <brandstof-view-contact name="contact"></brandstof-view-contact>
+        <brandstof-view-error404 name="error404"></brandstof-view-error404>
       </iron-pages>
     </app-header-layout>
   </template>
@@ -136,7 +136,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _pageChanged(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('brandstof-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('brandstof-view-' + page + '.html');
         Polymer.importHref(resolvedPageUrl, null, this._showPage404.bind(this), true);
       }
 

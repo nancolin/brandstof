@@ -9,31 +9,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="shared-styles.html">
 
-<dom-module id="brandstof-gallery">
+<dom-module id="brandstof-view-error404">
   <template>
-    <style include="shared-styles">
+    <style>
       :host {
         display: block;
 
-        padding: 10px;
+        padding: 10px 20px;
       }
     </style>
 
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-    </div>
+    Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
   </template>
 
   <script>
-    class BrandstofGallery extends Polymer.Element {
-      static get is() { return 'brandstof-gallery'; }
+    class BrandstofViewError404 extends Polymer.Element {
+      static get is() { return 'brandstof-view-error404'; }
+      static get properties() {
+        return {
+          // This shouldn't be neccessary, but the Analyzer isn't picking up
+          // Polymer.Element#rootPath
+          rootPath: String,
+        };
+      }
     }
 
-    window.customElements.define(BrandstofGallery.is, BrandstofGallery);
+    window.customElements.define(BrandstofViewError404.is, BrandstofViewError404);
   </script>
 </dom-module>

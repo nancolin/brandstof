@@ -1,0 +1,78 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="branstof-blog.html">
+<link rel="import" href="branstof-powered-by.html">
+
+<dom-module id="brandstof-view-home">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      header {
+        @apply --layout-vertical;
+        @apply --layout-center-center;
+        height: calc(100vh - 64px);
+        padding: 0 16px;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.45)
+        ), url('/images/bbq-background.jpg');
+        backgrond-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        text-align: center;
+      }
+
+      header > img {
+        height: auto;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      header > p {
+        font-size: 48px;
+        text-shadow: 0 0 8px #000;
+      }
+
+      @media (max-width: 960px) {
+        header > p {
+          font-size: 36px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header > p {
+          font-size: 28px;
+        }
+      }
+    </style>
+
+    <header>
+      <img src="../images/logo-small.min.jpg" alt="Brandstof">
+      <p>A creative community for makers.</p>
+    </header>
+
+    <brandstof-blog></brandstof-blog>
+    <brandstof-powered-by></brandstof-powered-by>
+
+  </template>
+
+  <script>
+    class BrandstofHome extends Polymer.Element {
+      static get is() { return 'brandstof-view-home'; }
+    }
+
+    window.customElements.define(BrandstofHome.is, BrandstofHome);
+  </script>
+</dom-module>
