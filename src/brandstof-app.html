@@ -22,6 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="brandstof-icons.html">
+<link rel="import" href="brandstof-user-id.html">
 
 <link rel="lazy-import" href="brandstof-view-home.html">
 <link rel="lazy-import" href="brandstof-view-gallery.html">
@@ -58,10 +59,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply --layout-horizontal;
       }
 
-      .tabs > a {
-        @apply --layout-vertical;
+      .tabs > * {
+        @apply --layout-horizontal;
         @apply --layout-center-center;
         margin: 12px 16px 12px;
+      }
+
+      .tabs > a {
+        @apply --layout-vertical;
       }
     </style>
 
@@ -85,7 +90,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <a href="[[rootPath]]contact">Contact</a>
           </div>
           <div class="tabs">
-            <a href="[[rootPath]]">Login</a>
+            <template is="dom-if" if="[[!user]]">
+              <a href="[[rootPath]]" on-click="_handleSignIn">Login</a>
+            </template>
+            <template is="dom-if" if="[[user]]">
+              <brandstof-user-id
+                name="[[user.displayName]]"
+                image="[[user.photoURL]]">
+              </brandstof-user-id>
+            </template>
           </div>
         </app-toolbar>
       </app-header>
@@ -119,6 +132,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // This shouldn't be neccessary, but the Analyzer isn't picking up
           // Polymer.Element#rootPath
           rootPath: String,
+          user: {
+            type: Object,
+            value: null
+          }
         };
       }
 
@@ -126,6 +143,50 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return [
           '_routePageChanged(routeData.page)',
         ];
+      }
+
+      constructor() {
+        super();
+
+        firebase.auth().onAuthStateChanged(this._handleUser.bind(this));
+      }
+
+      _handleUser(user) {
+        if (user) {
+          // User is signed in.
+          this.user = {
+            displayName: user.displayName,
+            email: user.email,
+            emailVerified: user.emailVerified,
+            photoURL: user.photoURL,
+            isAnonymous: user.isAnonymous,
+            uid: user.uid,
+            providerData: user.providerData,
+          };
+        } else {
+          // User is signed out.
+          this.user = null;
+        }
+      }
+
+      _handleSignIn() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const token = result.credential.accessToken;
+          // ...
+        }).catch(function(error) {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          const credential = error.credential;
+          // ...
+          console.error(`[${errorCode}] ${errorMessage}`);
+        });
       }
 
       _routePageChanged(page) {

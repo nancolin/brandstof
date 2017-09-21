@@ -1,0 +1,56 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="brandstof-user-id">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+
+      * {
+        vertical-align: middle;
+      }
+
+      img {
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+        margin-right: 16px;
+      }
+    </style>
+    <img src="[[_image]]" alt="">
+    <span>[[name]]</span>
+  </template>
+
+  <script>
+    class BrandstofUserId extends Polymer.Element {
+
+      static get is() { return 'brandstof-user-id'; }
+
+      static get properties() {
+        return {
+          name: String,
+          image: {
+            type: String,
+            value: '/images/default-avatar.png'
+          },
+          _image: {
+            type: String,
+            computed: '_computeImage(image)'
+          }
+        };
+      }
+
+      _computeImage(image) {
+        if (image) {
+          return image;
+        } else {
+          return '/images/default-avatar.png';
+        }
+      }
+
+    }
+
+    window.customElements.define(BrandstofUserId.is, BrandstofUserId);
+  </script>
+</dom-module>

@@ -87,6 +87,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
+    <!-- Init Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyCZ9dW9XKjbA1lt7xv28uOUCf6RA9zlnyA",
+        authDomain: "brandstof-app.firebaseapp.com",
+        databaseURL: "https://brandstof-app.firebaseio.com",
+        projectId: "brandstof-app",
+        storageBucket: "brandstof-app.appspot.com",
+        messagingSenderId: "184539985439"
+      };
+      firebase.initializeApp(config);
+    </script>
+
     <!-- Load your application shell -->
     <link rel="import" href="src/brandstof-app.html">
 
