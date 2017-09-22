@@ -17,8 +17,18 @@
         width: 36px;
         margin-right: 16px;
       }
+
+      @media (max-width: 840px) {
+        img {
+          margin-right: 0;
+        }
+
+        span {
+          display: none;
+        }
+      }
     </style>
-    <img src="[[_image]]" alt="">
+    <img src="[[_image]]" alt="" title="[[name]]">
     <span>[[name]]</span>
   </template>
 

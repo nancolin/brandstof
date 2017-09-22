@@ -21,6 +21,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
 <link rel="import" href="brandstof-icons.html">
 <link rel="import" href="brandstof-user-id.html">
 
@@ -50,8 +53,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply --layout-justified;
         background-color: rgba(0, 0, 0, 0.8);
         color: #fff;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      }
+
+      @media (min-width: 601px) {
+        .toolbar {
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
       }
 
       .tabs {
@@ -62,11 +70,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .tabs > * {
         @apply --layout-horizontal;
         @apply --layout-center-center;
-        margin: 12px 16px 12px;
+        margin: 12px 16px;
       }
 
-      .tabs > a {
-        @apply --layout-vertical;
+      .user-menu {
+        margin: 12px  0;
+      }
+
+      .user-menu paper-listbox {
+        --paper-listbox-background-color: #3a3a3a;
+        --paper-listbox-color: #c9c3bc;
+
+        width: 300px;
+        padding: 0;
+      }
+
+      .user-menu paper-item {
+        cursor: pointer;
       }
     </style>
 
@@ -94,10 +114,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <a href="[[rootPath]]" on-click="_handleSignIn">Login</a>
             </template>
             <template is="dom-if" if="[[user]]">
+            <paper-menu-button class="user-menu" horizontal-align="right">
               <brandstof-user-id
+                slot="dropdown-trigger"
                 name="[[user.displayName]]"
                 image="[[user.photoURL]]">
               </brandstof-user-id>
+              <paper-listbox slot="dropdown-content">
+                <paper-item>Upload</paper-item>
+                <paper-item on-click="_handleSignOut">Sign out</paper-item>
+              </paper-listbox>
+            </paper-menu-button>
             </template>
           </div>
         </app-toolbar>
@@ -151,6 +178,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         firebase.auth().onAuthStateChanged(this._handleUser.bind(this));
       }
 
+      /* Firebase Auth */
+
       _handleUser(user) {
         if (user) {
           // User is signed in.
@@ -171,23 +200,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _handleSignIn() {
         const provider = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          const token = result.credential.accessToken;
-          // ...
-        }).catch(function(error) {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          const credential = error.credential;
-          // ...
-          console.error(`[${errorCode}] ${errorMessage}`);
+        firebase.auth().signInWithPopup(provider).then((result) => {
+          console.log(`Signed in using ${result.additionalUserInfo.profile.email}.`);
+        }).catch((error) => {
+          console.error(`[${error.code}] ${error.message}`);
         });
       }
+
+      _handleSignOut() {
+        firebase.auth().signOut().then(() => {
+          console.log('Signed out successfully.');
+        }).catch((error) => {
+          console.error(`[${error.code}] ${error.message}`);
+        });
+      }
+
+      /* Routing */
 
       _routePageChanged(page) {
         // If no page was found in the route data, page will be an empty string.
