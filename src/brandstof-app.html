@@ -114,17 +114,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <a href="[[rootPath]]" on-click="_handleSignIn">Login</a>
             </template>
             <template is="dom-if" if="[[user]]">
-            <paper-menu-button class="user-menu" horizontal-align="right">
-              <brandstof-user-id
-                slot="dropdown-trigger"
-                name="[[user.displayName]]"
-                image="[[user.photoURL]]">
-              </brandstof-user-id>
-              <paper-listbox slot="dropdown-content">
-                <paper-item>Upload</paper-item>
-                <paper-item on-click="_handleSignOut">Sign out</paper-item>
-              </paper-listbox>
-            </paper-menu-button>
+              <paper-menu-button class="user-menu" horizontal-align="right"
+                  vertical-offset="52" horizontal-offset="-16">
+                <brandstof-user-id
+                    slot="dropdown-trigger"
+                    name="[[user.displayName]]"
+                    image="[[user.photoURL]]">
+                </brandstof-user-id>
+                <paper-listbox slot="dropdown-content">
+                  <paper-item>Upload</paper-item>
+                  <paper-item on-click="_handleSignOut">Sign out</paper-item>
+                </paper-listbox>
+              </paper-menu-button>
             </template>
           </div>
         </app-toolbar>
