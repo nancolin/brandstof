@@ -1,0 +1,42 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="brandstof-image">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        /* background: no-repeat center/contain; */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+  </template>
+
+  <script>
+    class BrandstofImage extends Polymer.Element {
+
+      static get is() { return 'brandstof-image'; }
+
+      static get properties() {
+        return {
+          src: {
+            type: String,
+            reflectToAttribute: true,
+            observer: '_updateSrc',
+          },
+        };
+      }
+
+      _updateSrc(src) {
+        this.style.backgroundImage = `url(${src})`;
+      }
+
+    }
+
+    window.customElements.define(BrandstofImage.is, BrandstofImage);
+  </script>
+</dom-module>

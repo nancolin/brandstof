@@ -1,46 +1,80 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="shared-styles.html">
+<link rel="import" href="brandstof-image.html">
 
 <dom-module id="brandstof-powered-by">
   <template>
-    <style include="shared-styles">
+    <style>
       :host {
         display: block;
-
         background: #fff;
-        color: #555;
+        color: #888;
+        font-weight: 500;
+        padding: calc(3vw + 16px) 5vw calc(3vw + 8px);
       }
 
-      .logo {
+      @media (max-width: 960px) {
+        :host {
+          font-size: 0.8rem;
+        }
+      }
+
+      h1 {
+        font-size: 1.5em;
+        line-height: 1;
+        margin: 0 0 0.5em;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .container > div {
+        display: flex;
+        flex: 0 1 385px;
+        align-items: center;
+      }
+
+      brandstof-image {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
         margin: 16px;
-        width: 300px;
       }
 
-      .logo img {
-        height: auto;
-        width: inherit;
+      span {
+        display: inline-block;
+        font-size: 2em;
+      }
+
+      @media (max-width: 960px) {
+        .container > div {
+          flex: 1 1 auto;
+        }
+
+        brandstof-image {
+          width: 60px;
+          height: 60px;
+        }
       }
     </style>
 
-    <section>
-      <div class="container full-width">
-        Powered By:
-        <div class="logo"><img src="../images/logo-small.min.jpg" alt=""></div>
-        <div class="logo"><img src="../images/logo-small.min.jpg" alt=""></div>
-        <div class="logo"><img src="../images/logo-small.min.jpg" alt=""></div>
-        <div class="logo"><img src="../images/logo-small.min.jpg" alt=""></div>
+    <h1>Powered by</h1>
+    <div class="container">
+      <div>
+        <brandstof-image src="/images/logos/webcomponents.svg"></brandstof-image>
+        <span>Web Components</span>
       </div>
-    </section>
+      <div>
+        <brandstof-image src="/images/logos/polymer.svg"></brandstof-image>
+        <span>Polymer</span>
+      </div>
+      <div>
+        <brandstof-image src="/images/logos/firebase.svg"></brandstof-image>
+        <span>Firebase</span>
+      </div>
+    </div>
 
   </template>
 
