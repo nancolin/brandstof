@@ -1,39 +1,52 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="shared-styles.html">
 
 <dom-module id="brandstof-blog">
   <template>
-    <style include="shared-styles">
+    <style>
       :host {
         display: block;
-
         background: #3a3a3a;
         color: #fff;
+        font-weight: 500;
+        padding: calc(5vw + 16px) 8vw;
+      }
+
+      @media (max-width: 840px) {
+        :host {
+          font-size: 0.8rem;
+        }
+      }
+
+      h1 {
+        font-size: 3em;
+        line-height: 1;
+        margin: 0 0 1em;
+      }
+
+      p {
+        font-size: 1.5em;
+        line-height: 1.75;
+        margin: 0;
       }
     </style>
-
-    <section>
-      <div class="container full-width">
-        <h2>Blog:</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eos eius incidunt necessitatibus eligendi repudiandae natus omnis explicabo quos distinctio delectus, pariatur id numquam totam dolores officia possimus quam, soluta modi ipsum maxime recusandae impedit ad! Illo quibusdam eum aliquam autem odio itaque reiciendis atque sequi enim sint unde minus cum maiores ex voluptatum ipsum, molestias est, incidunt praesentium nobis vitae necessitatibus veniam. In corrupti, ipsum, impedit sed officiis sapiente aspernatur error sequi laborum consequuntur, dicta? Incidunt id, assumenda possimus dolorum esse, magni ducimus accusamus eius asperiores, deleniti hic harum iste ipsam. Eum mollitia, molestiae aperiam. Illum voluptas facere, deserunt.</p>
-      </div>
-    </section>
-
+    <h1>[[title]]</h1>
+    <p><slot></slot></p>
   </template>
 
   <script>
     class BrandstofBlog extends Polymer.Element {
+
       static get is() { return 'brandstof-blog'; }
+
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'BLOG',
+          },
+        };
+      }
+
     }
 
     window.customElements.define(BrandstofBlog.is, BrandstofBlog);
