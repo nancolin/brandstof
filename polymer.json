@@ -1,12 +1,7 @@
 {
   "entrypoint": "index.html",
   "shell": "src/brandstof-app.html",
-  "fragments": [
-    "src/brandstof-view1.html",
-    "src/brandstof-view2.html",
-    "src/brandstof-view3.html",
-    "src/brandstof-view404.html"
-  ],
+  "fragments": [],
   "sources": [
     "src/**/*",
     "images/**/*",
@@ -14,7 +9,9 @@
   ],
   "extraDependencies": [
     "manifest.json",
-    "bower_components/webcomponentsjs/*.js"
+    "bower_components/webcomponentsjs/*.js",
+    "bower_components/web-animations-js/*.min.js",
+    "bower_components/web-animations-js/*.min.html"
   ],
   "lint": {
     "rules": ["polymer-2"]
