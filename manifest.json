@@ -1,0 +1,21 @@
+{
+  "name": "Brandstof",
+  "short_name": "Brandstof",
+  "description": "A creative community for makers.",
+  "start_url": "./?utm_source=homescreen",
+  "display": "standalone",
+  "theme_color": "#413b35",
+  "background_color": "#413b35",
+  "icons": [
+    {
+      "src": "images/manifest/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/manifest/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
