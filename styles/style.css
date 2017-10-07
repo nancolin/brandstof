@@ -1,3 +1,7 @@
+/**********/
+/* Global */
+/**********/
+
 html {
   box-sizing: border-box;
 }
@@ -10,47 +14,177 @@ body {
   display: flex;
   justify-content: center;
   margin: 0;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'Montserrat', 'Roboto', 'Noto', sans-serif;
   line-height: 1.3;
   min-height: 100vh;
   background-color: #f5f5f5;
 }
 
+/*************/
+/* Container */
+/*************/
+
 main {
   max-width: 1024px;
+  margin: 0 16px;
+}
+
+/**************/
+/* Navigation */
+/**************/
+
+nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   list-style: none;
+  margin: 1em 0.5em 1em 1em;
+  padding: 0;
+}
+
+nav ul:last-of-type {
+  margin: auto 1em auto 0.5em;
 }
 
 nav li {
   display: inline-block;
-  margin: 0 2em;
+  margin-right: 1em;
+  text-transform: uppercase;
+  font-weight: 500;
 }
+
+nav ul:last-of-type li {
+  margin-right: 0;
+}
+
+/**********/
+/* Header */
+/**********/
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  padding: 16px;
+  color: #fff;
   background: linear-gradient(
     rgba(0, 0, 0, 0.45),
     rgba(0, 0, 0, 0.45)
   ), url('../images/bbq-background.jpg');
   backgrond-repeat: no-repeat;
   background-size: cover;
-
-  height: 576px;
-  color: #fff;
+  text-align: center;
+  margin: 0 calc(-47vw + 512px);
+  height: calc(96vh - 64px);
 }
 
 header img {
+  height: auto;
   width: 100%;
-  max-width: 500px;
-  margin: 16px;
+  max-width: 600px;
+}
+
+header > p {
+  font-size: 48px;
+  text-shadow: 0 0 8px #000;
+}
+
+/* Inverse of header margin */
+@media (max-width: 1085px) {
+  header {
+    margin: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  header > p {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  header > p {
+    font-size: 28px;
+  }
+}
+
+/***********/
+/* Section */
+/***********/
+
+section {
+  display: flex;
+  align-items: center;
+  margin: 1em;
+  padding: 2em 0;
+  line-height: 1.5;
+}
+
+section h1 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+section h3 {
+  text-transform: uppercase;
+}
+
+section h3,
+section p {
+  margin: 0;
+}
+
+section .image {
+  display: inline-block;
+  flex: 0 0 180px;
+  height: 180px;
+}
+
+section .image img {
+  height: 100%;
+  width: 100%;
+}
+
+section .text {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 0.8rem;
+}
+
+section .text.right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+section .text.sub-header p {
+  margin: 0 10%;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+section .text.sub-header h1 {
+  margin: 0 0 0.5em;
+  font-weight: 600;
+}
+
+/**********/
+/* Footer */
+/**********/
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+}
+
+footer > div {
+  flex: auto;
+  margin: 1em;
 }
