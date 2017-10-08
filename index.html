@@ -38,29 +38,44 @@
   </head>
   <body>
     <main>
+
       <nav>
         <ul>
-          <li>Home</li>
-          <li>Gallery</li>
-          <li>Jury</li>
-          <li>Upload</li>
-          <li>About Us</li>
+          <li><a href="./">Home</a></li>
+          <li>
+            <div class="dropdown">
+              <a class="dropdown-toggle">Gallery</a>
+              <div class="dropdown-content">
+                <a href="#">Website</a>
+                <a href="#">Illustration</a>
+                <a href="#">Photos</a>
+                <a href="#">Videos</a>
+                <a href="#">Design</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="jury/">Jury</a></li>
+          <li><a href="upload/">Upload</a></li>
+          <li><a href="about/">About Us</a></li>
         </ul>
         <ul>
-          <li>Login</li>
+          <li><a href="login/">Login</a></li>
         </ul>
       </nav>
+
       <header>
-        <img src="images/logo-small.min.jpg" alt="Brandstof">
+        <img src="images/logo.jpg" alt="Brandstof">
         <p>A creative community for makers.</p>
       </header>
-      <section>
-        <div class="text sub-header">
+
+      <section class="intro">
+        <div class="text">
           <h1>We are .....</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur quasi aut,
           tempora unde eveniet nam nostrum obcaecati dicta soluta!</p>
         </div>
       </section>
+
       <section>
         <div class="image">
           <img src="images/date-2.png" alt="">
@@ -75,8 +90,12 @@
           Alias cum excepturi ut, et numquam repudiandae.</p>
         </div>
       </section>
-      <section>
-        <div class="text right">
+
+      <section class="reversed">
+        <div class="image">
+          <img src="images/date-1.png" alt="">
+        </div>
+        <div class="text">
           <h3>Got to do this now</h3>
           <p>Nisi sequi iste fuga possimus mollitia adipisci, dignissimos consequatur, sapiente
           illum ipsa, repudiandae neque animi vero similique. Vitae in magni sunt nisi consectetur
@@ -85,10 +104,8 @@
           sapiente, praesentium minus! Libero omnis, ut vel quam aliquid dignissimos dolor, eius
           id, accusamus cumque ipsa?</p>
         </div>
-        <div class="image">
-          <img src="images/date-1.png" alt="">
-        </div>
       </section>
+
       <footer>
         <div>
           <h3>Address</h3>
@@ -100,8 +117,8 @@
           <p>info@brandstof.nl</p>
           <p>06-9381-1970</p>
         </div>
-        <div><!-- flex-spacer --></div>
       </footer>
+
     </main>
   </body>
 </html>
