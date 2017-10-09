@@ -31,3 +31,25 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
   });
 });
+
+/**********/
+/* Footer */
+/**********/
+
+// Resize bottom padding on `<main>` to accommodate footer
+function resizeFooterPadding() {
+  const main = document.querySelector('main');
+  const footer = document.querySelector('footer');
+  const footerHeight = parseFloat(getComputedStyle(footer).getPropertyValue('height'));
+  main.style.paddingBottom = `${footerHeight + 32}px`;
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+
+  // Add listener to resize padding as page resizes
+  window.addEventListener('resize', resizeFooterPadding);
+
+  // Initial call to set padding for footer
+  resizeFooterPadding();
+
+});
