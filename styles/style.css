@@ -66,14 +66,14 @@ nav .dropdown {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin-left: -8px;
+  margin-left: -16px;
 }
 
 nav .dropdown .dropdown-toggle {
   display: inline-block;
   cursor: pointer;
   padding: 16px 0;
-  margin-left: 8px;
+  margin-left: 16px;
 }
 
 nav .dropdown-content {
@@ -200,11 +200,13 @@ section .text {
   margin: 0 0.8rem;
 }
 
-section.reversed {
+section.reversed,
+.alternate section:nth-child(2n) {
   flex-direction: row-reverse;
 }
 
-section.reversed .text {
+section.reversed .text,
+.alternate section:nth-child(2n) .text {
   align-items: flex-end;
   text-align: right;
 }
