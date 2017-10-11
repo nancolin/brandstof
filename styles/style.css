@@ -279,3 +279,50 @@ footer > div {
     padding-right: 60px;
   }
 }
+
+/**********/
+/* Assets */
+/**********/
+
+.banner {
+  margin: 1em 0;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+/***************/
+/* Page: About */
+/***************/
+
+#about section {
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+#about section h1 {
+  margin: 0.5em 0;
+}
+
+#about section .contact {
+  flex-basis: 210px;
+  margin: 1em;
+}
+
+#about section .contact div {
+  padding: 1em 0;
+}
+
+@media (max-width: 720px) {
+  #about section .contact {
+    display: none;
+  }
+}
+
+@media (min-width: 721px) {
+  #about section .text {
+    margin-right: 3em;
+  }
+}

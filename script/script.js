@@ -18,6 +18,7 @@ function toggleDropdown(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
+
   // Add click listeners to every dropdown
   document.querySelectorAll('.dropdown').forEach(dropdown => {
     dropdown.addEventListener('click', toggleDropdown);
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       Brandstof.openedDropdown = null;
     }
   });
+
 });
 
 /**********/
