@@ -63,6 +63,14 @@ nav a {
   color: #000;
 }
 
+nav a:hover {
+  border-bottom: 2px solid #000;
+}
+
+nav .dropdown a:hover {
+  margin-bottom: 14px;
+}
+
 nav .dropdown {
   overflow: hidden;
   -webkit-user-select: none;
@@ -75,8 +83,7 @@ nav .dropdown {
 nav .dropdown .dropdown-toggle {
   display: inline-block;
   cursor: pointer;
-  padding: 16px 0;
-  margin-left: 16px;
+  margin: 16px 0 16px 16px;
 }
 
 nav .dropdown-content {
@@ -98,9 +105,22 @@ nav .dropdown-content[opened] {
   visibility: visible;
 }
 
-nav .dropdown-content a {
+nav .dropdown-content {
   display: block;
-  padding: 8px 16px;
+  margin: 0;
+}
+
+nav .dropdown-content li {
+  display: block;
+  margin: 16px;
+}
+
+nav .dropdown-content li:first-of-type {
+  margin-top: 8px;
+}
+
+nav .dropdown-content li:last-of-type {
+  margin-bottom: 8px;
 }
 
 /**********/
