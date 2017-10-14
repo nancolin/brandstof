@@ -63,6 +63,14 @@ nav a {
   color: #000;
 }
 
+nav a:hover {
+  border-bottom: 2px solid #000;
+}
+
+nav .dropdown a:hover {
+  margin-bottom: 14px;
+}
+
 nav .dropdown {
   overflow: hidden;
   -webkit-user-select: none;
@@ -75,8 +83,7 @@ nav .dropdown {
 nav .dropdown .dropdown-toggle {
   display: inline-block;
   cursor: pointer;
-  padding: 16px 0;
-  margin-left: 16px;
+  margin: 16px 0 16px 16px;
 }
 
 nav .dropdown-content {
@@ -98,9 +105,22 @@ nav .dropdown-content[opened] {
   visibility: visible;
 }
 
-nav .dropdown-content a {
+nav .dropdown-content {
   display: block;
-  padding: 8px 16px;
+  margin: 0;
+}
+
+nav .dropdown-content li {
+  display: block;
+  margin: 16px;
+}
+
+nav .dropdown-content li:first-of-type {
+  margin-top: 8px;
+}
+
+nav .dropdown-content li:last-of-type {
+  margin-bottom: 8px;
 }
 
 /**********/
@@ -373,6 +393,103 @@ footer > div {
 @media (max-width: 600px) {
   #gallery .gallery .image-grid .image {
     flex-basis: 100%;
+  }
+}
+
+/****************/
+/* Page: Upload */
+/****************/
+
+#upload section {
+  align-items: flex-start;
+}
+
+#upload form {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 calc(50% - 32px);
+  justify-content: flex-end;
+  margin: 0 16px;
+}
+
+#upload input:not([type="submit"]) {
+  flex: 1 0 100%;
+  padding: 8px;
+  margin: 16px 0;
+  border: 3px solid #000;
+  background-color: inherit;
+}
+
+#upload input[type="submit"] {
+  flex: 0 0 50%;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+#upload .preview-wrapper {
+  flex: 0 0 calc(50% - 32px);
+  margin: 16px;
+}
+
+#upload .preview-content {
+  position: relative;
+  padding-top: calc((9 / 16) * 100%);
+}
+
+#upload .preview-content #preview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: #000;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#upload .preview-content #previewOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  background-image: url('../images/upload-plus.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #FFF;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#upload .preview-content #previewOverlay h1 {
+  margin: 16px;
+}
+
+#upload .preview-content #previewOverlay p {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  #upload section {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+  }
+
+  #upload form,
+  #upload .preview-wrapper {
+    width: calc(100% - 32px);
   }
 }
 

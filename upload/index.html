@@ -35,9 +35,10 @@
 
     <!-- Load scripts -->
     <script src="scripts/script.js"></script>
+    <script src="scripts/upload.js"></script>
   </head>
   <body>
-    <main>
+    <main id="upload">
 
       <nav>
         <ul>
@@ -45,13 +46,13 @@
           <li>
             <div class="dropdown">
               <a class="dropdown-toggle">Gallery</a>
-              <div class="dropdown-content">
-                <a href="gallery/">Website</a>
-                <a href="gallery/">Illustration</a>
-                <a href="gallery/">Photos</a>
-                <a href="gallery/">Videos</a>
-                <a href="gallery/">Design</a>
-              </div>
+              <ul class="dropdown-content">
+                <li><a href="gallery/">Website</a></li>
+                <li><a href="gallery/">Illustration</a></li>
+                <li><a href="gallery/">Photos</a></li>
+                <li><a href="gallery/">Videos</a></li>
+                <li><a href="gallery/">Design</a></li>
+              </ul>
             </div>
           </li>
           <li><a href="jury/">Jury</a></li>
@@ -64,17 +65,20 @@
       </nav>
 
       <section>
-        <div class="image">
-          <img src="images/date-2.png" alt="">
-        </div>
-        <div class="text">
-          <h3>Working is hard</h3>
-          <p>Molestiae fugit, dicta itaque alias quibusdam animi adipisci, doloribus sapiente
-          tenetur eum debitis ullam aliquid voluptates enim magni saepe similique quam, officiis
-          magnam dolores aliquam? Vero, nesciunt, iusto. Modi libero, ullam consequuntur soluta
-          explicabo fugiat? Sequi vitae suscipit, fugiat sint cum. Porro tempora sequi fugit
-          corrupti, deserunt, aspernatur doloremque. Sequi, dolores. Maxime delectus qui, eius!
-          Alias cum excepturi ut, et numquam repudiandae.</p>
+        <form id="form" action="">
+          <input type="text" id="formTitle" placeholder="Title">
+          <input type="text" id="formFN" placeholder="Your Name">
+          <input type="text" id="formLN" placeholder="Last Name">
+          <input type="submit" id="formSubmit" value="Save">
+        </form>
+        <div class="preview-wrapper">
+          <div class="preview-content">
+            <div id="preview"></div>
+            <div id="previewOverlay">
+              <h1 id="previewTitle">Title</h1>
+              <p id="previewName">Your Name</p>
+            </div>
+          </div>
         </div>
       </section>
 
