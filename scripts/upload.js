@@ -5,13 +5,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
   const formElements = {
     form: document.querySelector('#form'),
     title: document.querySelector('#formTitle'),
-    firstName: document.querySelector('#formFN'),
-    lastName: document.querySelector('#formLN'),
+    firstName: document.querySelector('#formFirstName'),
+    lastName: document.querySelector('#formLastName'),
     submit: document.querySelector('#submit'),
   };
 
   const previewElements = {
     preview: document.querySelector('#preview'),
+    image: document.querySelector('#previewImage'),
     overlay: document.querySelector('#previewOverlay'),
     title: document.querySelector('#previewTitle'),
     name: document.querySelector('#previewName'),
@@ -32,23 +33,20 @@ document.addEventListener('DOMContentLoaded', function(event) {
   formElements.lastName.addEventListener('input', bindNameToPreview);
 
   // Upload image to preview
-  previewElements.overlay.addEventListener('click', function(event) {
-
+  previewElements.preview.addEventListener('click', function(event) {
     const input = document.createElement('input');
     input.type = 'file';
     input.onchange = function(inputEvent) {
-
       const reader = new FileReader();
-
-      reader.addEventListener('load', function () {
-        previewElements.overlay.style.backgroundImage = 'url()';
-        previewElements.preview.style.backgroundImage = `url(${reader.result})`;
-      });
-
+      reader.onload = function() {
+        previewElements.overlay.style.backgroundImage = 'none';
+        previewElements.image.style.backgroundImage = `url(${reader.result})`;
+      };
+      reader.onerror = function() {
+        alert('An error has occurred, please try adding your image again.');
+      };
       reader.readAsDataURL(inputEvent.target.files[0]);
-
     };
-
     input.click();
   });
 
