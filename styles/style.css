@@ -439,15 +439,18 @@ footer > div {
 #upload #preview {
   position: relative;
   padding-top: calc((9 / 16) * 100%);
+  cursor: pointer;
 }
 
-#upload #preview #previewImage {
+#upload #preview > * {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  cursor: pointer;
+}
+
+#upload #preview #previewImage {
   background-color: #000;
   background-size: contain;
   background-repeat: no-repeat;
@@ -455,18 +458,12 @@ footer > div {
 }
 
 #upload #preview #previewOverlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  overflow: hidden;
+  color: #FFF;
   background-color: rgba(0, 0, 0, 0.65);
   background-image: url('../images/upload-plus.png');
-  background-repeat: no-repeat;
   background-size: 100% 100%;
-  color: #FFF;
-  overflow: hidden;
-  cursor: pointer;
+  background-repeat: no-repeat;
 }
 
 #upload #preview #previewOverlay h1 {

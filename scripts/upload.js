@@ -37,15 +37,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     const input = document.createElement('input');
     input.type = 'file';
     input.onchange = function(inputEvent) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        previewElements.overlay.style.backgroundImage = 'none';
-        previewElements.image.style.backgroundImage = `url(${reader.result})`;
-      };
-      reader.onerror = function() {
-        alert('An error has occurred, please try adding your image again.');
-      };
-      reader.readAsDataURL(inputEvent.target.files[0]);
+      const url = URL.createObjectURL(inputEvent.target.files[0]);
+      previewElements.overlay.style.backgroundImage = 'none';
+      previewElements.image.style.backgroundImage = `url('${url}')`;
     };
     input.click();
   });
