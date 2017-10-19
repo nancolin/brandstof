@@ -1,0 +1,16 @@
+section {
+  color: #fff;
+  background-color: #000;
+  padding: 0;
+  margin: 3em 1em;
+}
+
+section .image {
+  flex-basis: 300px;
+  height: 300px;
+  margin: -1em 0;
+}
+
+section .text {
+  margin: 2em;
+}
