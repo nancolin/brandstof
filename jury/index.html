@@ -33,6 +33,21 @@
     <link rel="stylesheet" href="jury/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900">
 
+    <!-- Load firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDjM3LBIsXt4RhuXJvTHMuJQLVh8bMZ_Ug",
+        authDomain: "brandstof-wirelab.firebaseapp.com",
+        databaseURL: "https://brandstof-wirelab.firebaseio.com",
+        projectId: "brandstof-wirelab",
+        storageBucket: "brandstof-wirelab.appspot.com",
+        messagingSenderId: "904399983069"
+      };
+      firebase.initializeApp(config);
+    </script>
+
     <!-- Load scripts -->
     <script src="global-script.js"></script>
   </head>
@@ -59,7 +74,8 @@
           <li><a href="about/">About Us</a></li>
         </ul>
         <ul>
-          <li><a href="login/">Login</a></li>
+          <li><span id="signInBtn" onclick="Brandstof.auth.signIn()" hidden>Login</span></li>
+          <li><span id="signOutBtn" onclick="Brandstof.auth.signOut()" hidden>Logout</span></li>
         </ul>
       </nav>
 

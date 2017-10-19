@@ -58,16 +58,20 @@ nav li {
   margin: auto 0.5em;
 }
 
-nav a {
+nav a,
+nav span {
   text-decoration: none;
   color: #000;
+  cursor: pointer;
 }
 
-nav a:hover {
+nav a:hover,
+nav span:hover {
   border-bottom: 2px solid #000;
 }
 
-nav .dropdown a:hover {
+nav .dropdown a:hover,
+nav .dropdown span:hover {
   margin-bottom: 14px;
 }
 
