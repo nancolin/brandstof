@@ -1,0 +1,89 @@
+section {
+  align-items: flex-start;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 calc(50% - 32px);
+  justify-content: flex-end;
+  margin: 0 16px;
+}
+
+input:not([type="submit"]) {
+  flex: 1 0 100%;
+  padding: 8px;
+  margin: 16px 0;
+  border: 3px solid #000;
+  background-color: inherit;
+}
+
+input[type="submit"] {
+  flex: 0 0 50%;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.preview-wrapper {
+  flex: 0 0 calc(50% - 32px);
+  margin: 16px;
+}
+
+#preview {
+  position: relative;
+  padding-top: calc((9 / 16) * 100%);
+  cursor: pointer;
+}
+
+#preview > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#preview #previewImage {
+  background-color: #000;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#preview #previewOverlay {
+  overflow: hidden;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.65);
+  background-image: url('../images/upload-plus.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#preview #previewOverlay h1 {
+  margin: 16px;
+}
+
+#preview #previewOverlay p {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  section {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+  }
+
+  form,
+  .preview-wrapper {
+    width: calc(100% - 32px);
+  }
+}
