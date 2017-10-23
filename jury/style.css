@@ -11,6 +11,49 @@ section .image {
   margin: -1em 0;
 }
 
+section .text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(300px - 32px);
+}
+
 section .text {
   margin: 2em;
+  flex: 1 1;
+}
+
+section .badges {
+  margin: 1em 2em;
+  padding: 0;
+}
+
+section.reversed .badges {
+  text-align: right;
+}
+
+section .badge {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 2px;
+  background-size: 100% 100%;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+section .badge:hover {
+  opacity: 1;
+}
+
+section .badge.facebook {
+  background-image: url('../images/logos/facebook.png');
+}
+
+section .badge.twitter {
+  background-image: url('../images/logos/twitter.png');
+}
+
+section .badge.linkedin {
+  background-image: url('../images/logos/linkedin.png');
 }

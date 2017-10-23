@@ -63,6 +63,8 @@ nav span {
   text-decoration: none;
   color: #000;
   cursor: pointer;
+  transition: border 0.2s ease, margin 0.2s ease;
+  border: 0 solid; /* Fix transition issue */
 }
 
 nav a:hover,

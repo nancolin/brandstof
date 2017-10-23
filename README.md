@@ -4,7 +4,6 @@
 
 ### Todo
 
-* Complete `Jury` page
 * Make `nav` responsive
-* Add animations in various places
+* Make `Jury` page responsive
 * Maintain parity between photo background and overlay on upload and gallery
