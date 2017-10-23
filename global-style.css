@@ -335,7 +335,7 @@ footer > div {
 
 .aspect-wrapper .aspect-image {
   background-color: #000;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
