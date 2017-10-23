@@ -361,7 +361,7 @@ footer > div {
 }
 
 .aspect-wrapper[upload] .aspect-overlay {
-  background-image: url('../images/upload-plus.png');
+  background-image: url('images/upload-plus.png');
 }
 
 .aspect-wrapper .aspect-overlay h1 {
