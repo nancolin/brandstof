@@ -91,85 +91,47 @@
         </div>
         <div class="image-grid">
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+          <script>
+            function createImageBlock(image) {
+              const imageBlock = document.createElement('div');
+              imageBlock.classList.add('image-block');
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+              const aspectWrapper = document.createElement('div');
+              aspectWrapper.classList.add('aspect-wrapper');
+              aspectWrapper.setAttribute('animated', '');
+              imageBlock.appendChild(aspectWrapper);
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+              const aspectImage = document.createElement('div');
+              aspectImage.classList.add('aspect-image');
+              aspectImage.style.backgroundImage = `url('${image.url}')`;
+              aspectWrapper.appendChild(aspectImage);
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+              const aspectOverlay = document.createElement('div');
+              aspectOverlay.classList.add('aspect-overlay');
+              aspectWrapper.appendChild(aspectOverlay);
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+              const overlayTitle = document.createElement('h1');
+              overlayTitle.textContent = image.title;
+              aspectOverlay.appendChild(overlayTitle);
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+              const overlayName = document.createElement('p');
+              overlayName.textContent = image.name;
+              aspectOverlay.appendChild(overlayName);
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+              return imageBlock;
+            }
 
-          <div class="image-block">
-            <div class="aspect-wrapper" animated>
-              <div class="aspect-image" style="background-image: url('../images/header-bg.jpg');"></div>
-              <div class="aspect-overlay">
-                <h1>Website for Football USA</h1>
-                <p>Nanco Lin</p>
-              </div>
-            </div>
-          </div>
+            const grid = document.currentScript.parentNode;
+
+            Array(8).fill({
+              url: '../images/header-bg.jpg',
+              title: 'Website for Football USA',
+              name: 'Nanco Lin',
+            })
+            .forEach(image => {
+              grid.appendChild(createImageBlock(image));
+            });
+          </script>
 
         </div>
       </div>
