@@ -6,4 +6,3 @@
 
 * Make `nav` responsive
 * Make `Jury` page responsive
-* Maintain parity between photo background and overlay on upload and gallery

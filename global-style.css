@@ -319,3 +319,58 @@ footer > div {
   width: 100%;
   height: auto;
 }
+
+.aspect-wrapper {
+  position: relative;
+  padding-top: calc((9 / 16) * 100%);
+}
+
+.aspect-wrapper > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.aspect-wrapper .aspect-image {
+  background-color: #000;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.aspect-wrapper .aspect-overlay {
+  overflow: hidden;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.aspect-wrapper[animated] .aspect-overlay {
+  visibility: hidden;
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.aspect-wrapper[animated]:hover .aspect-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+.aspect-wrapper[upload] .aspect-overlay {
+  background-image: url('../images/upload-plus.png');
+}
+
+.aspect-wrapper .aspect-overlay h1 {
+  margin: 16px 24px;
+}
+
+.aspect-wrapper .aspect-overlay p {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  margin: 0;
+}
