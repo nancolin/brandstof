@@ -16,6 +16,7 @@
     "gulp-if": "^2.0.2"
   },
   "scripts": {
+    "deploy": "gulp build && firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "homepage": "https://brandstof-wirelab.firebaseapp.com/"
