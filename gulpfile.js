@@ -11,8 +11,8 @@ gulp.task('build', function() {
   .then(() => {
     gulp.src([
       'src/**/*',
-      '!src/_fragments',
-      '!src/_fragments/**'
+      '!src/_*',
+      '!src/_*/**/*'
     ])
     .pipe(gulpif(/\.html$/, fileInclude({
       prefix: '@@',
