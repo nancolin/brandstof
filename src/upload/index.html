@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    @@include('_fragments/head.html', {
+      "title": "Upload | Brandstof"
+    })
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="upload/style.css">
+
+    <!-- Page scripts -->
+    <script src="upload/script.js"></script>
+  </head>
+  <body>
+    <main>
+
+      @@include('_fragments/nav.html')
+
+      <section>
+        <form id="form" action="">
+          <input type="text" id="formTitle" placeholder="Title">
+          <input type="text" id="formFirstName" placeholder="First Name">
+          <input type="text" id="formLastName" placeholder="Last Name">
+          <input type="submit" id="formSubmit" value="Save">
+        </form>
+        <div class="preview-wrapper">
+          <div id="preview" class="aspect-wrapper" upload>
+            <div id="previewImage" class="aspect-image"></div>
+            <div id="previewOverlay" class="aspect-overlay">
+              <h1 id="previewTitle">Title</h1>
+              <p id="previewName">Your Name</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      @@include('_fragments/footer.html')
+
+    </main>
+  </body>
+</html>

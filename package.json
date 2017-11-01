@@ -1,0 +1,22 @@
+{
+  "name": "brandstof",
+  "version": "1.0.0",
+  "description": "A creative community for makers",
+  "author": "Nanco Lin",
+  "license": "TBD",
+  "main": "src/index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "css-slam": "^2.0.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel-minify": "^0.2.0",
+    "gulp-file-include": "^1.2.0",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-if": "^2.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://brandstof-wirelab.firebaseapp.com/"
+}
