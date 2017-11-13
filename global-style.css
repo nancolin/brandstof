@@ -144,7 +144,7 @@ header {
     rgba(0, 0, 0, 0.45),
     rgba(0, 0, 0, 0.45)
   ), url('images/header-bg.jpg');
-  backgrond-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
   margin: 0 calc(-47vw + 512px);
@@ -351,7 +351,7 @@ footer > div {
 .aspect-wrapper[animated] .aspect-overlay {
   visibility: hidden;
   opacity: 0;
-  will-change: opacity;
+  will-change: opacity, visibility;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
